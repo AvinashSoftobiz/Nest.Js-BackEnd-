@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CountryModule } from './country/country.module';
-
+import { config } from 'dotenv';
+config();
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://Avinashkumar:Aman123@cluster0.gzpb0dy.mongodb.net/test', {
+    MongooseModule.forRoot(process.env.MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }),
